@@ -26,7 +26,7 @@ public class FileWork {
     }
 
     private List<String> findWordsStartsWithW(List<String> text, List<String> result) {
-        if(!text.isEmpty()){
+        if (!text.isEmpty()) {
             for (String line : text) {
                 String[] words = line.split(" ");
                 for (String word : words) {
