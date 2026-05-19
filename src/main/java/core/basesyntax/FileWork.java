@@ -14,7 +14,7 @@ public class FileWork {
 
         List<String> text = null;
 
-        try  {
+        try {
             text = Files.readAllLines(file.toPath());
         } catch (IOException e) {
             throw new RuntimeException("Problem with file", e);
@@ -25,13 +25,12 @@ public class FileWork {
         return removePunctual(listOfWords);
     }
 
-
-    private List<String> findWordsStartsWithW (List<String> text, List<String> result) {
+    private List<String> findWordsStartsWithW(List<String> text, List<String> result) {
         if(!text.isEmpty()){
-            for(String line : text){
+            for (String line : text) {
                 String[] words = line.split(" ");
-                for(String word : words){
-                    if(word.startsWith("w") || word.startsWith("W")){
+                for (String word : words) {
+                    if (word.startsWith("w") || word.startsWith("W")) {
                         result.add(word.toLowerCase());
                     }
                 }
@@ -40,8 +39,8 @@ public class FileWork {
         return result;
     }
 
-    private String[] removePunctual (List<String> result) {
-        for(int i = 0; i < result.size(); i++){
+    private String[] removePunctual(List<String> result) {
+        for (int i = 0; i < result.size(); i++) {
             String cleanedWord = result.get(i).replaceAll("\\p{Punct}+$", "");
             result.set(i, cleanedWord);
         }
